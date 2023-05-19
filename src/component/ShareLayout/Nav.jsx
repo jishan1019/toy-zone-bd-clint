@@ -22,7 +22,7 @@ const Nav = () => {
                 />
               </div>
               <Link to="/">Home</Link>
-              <Link className="ml-4" to="/">
+              <Link className="ml-4" to="/blog">
                 Blog
               </Link>
               <Link className="ml-4" to="/">
@@ -63,7 +63,7 @@ const Nav = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/">Blog</Link>
+                <Link to="/blog">Blog</Link>
               </li>
               <li>
                 <Link to="/">All Toys</Link>
