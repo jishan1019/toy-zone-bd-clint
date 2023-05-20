@@ -11,23 +11,26 @@ const Login = () => {
         />
       </div>
       <div className=" lg:w-[50%] w-full mt-8 mb-12 ">
-        <div className="bg-base-200 lg:w-1/2 w-[80%] mx-auto pt-12 pb-12 pl-4 pr-4 rounded-md text-center">
+        <div className="bg-base-200 lg:w-[60%] w-[80%] mx-auto pt-12 pb-12 pl-4 pr-4 rounded-md text-center">
           <h1 className="font-bold text-3xl">Login Now</h1>
-          <p className="mt-3 text-sm">Dear user please logiin to continue.</p>
+          <p className="mt-3 text-sm">Please login to continue</p>
           <form className="mt-8" action="">
             <input
+              required
               type="email"
               name="email"
               id=""
-              placeholder="Enter Your Name"
-              className="p-4 rounded-md"
+              placeholder="Enter Your Email"
+              className="p-3 rounded-md w-[80%]"
             />
+            <br />
             <input
+              required
               type="password"
               name="password"
               id=""
               placeholder="Enter Your Password"
-              className="p-4 rounded-md mt-4"
+              className="p-3 rounded-md mt-4 w-[80%]"
             />
             <br />
             <p className="mt-4 text-sm">
