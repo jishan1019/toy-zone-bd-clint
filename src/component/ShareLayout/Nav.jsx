@@ -67,7 +67,7 @@ const Nav = () => {
               </NavLink>
 
               <NavLink
-                to="/"
+                to="/login"
                 aria-label="Login"
                 title="Login"
                 className={({ isActive }) =>
@@ -78,7 +78,7 @@ const Nav = () => {
               </NavLink>
 
               <NavLink
-                to="/"
+                to="/regestation"
                 aria-label="Regestation"
                 title="Regestation"
                 className={({ isActive }) =>
@@ -190,7 +190,7 @@ const Nav = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/login"
                   aria-label="Login"
                   title="Login"
                   className={({ isActive }) =>
@@ -202,7 +202,7 @@ const Nav = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/regestation"
                   aria-label="Regestation"
                   title="Regestation"
                   className={({ isActive }) =>
