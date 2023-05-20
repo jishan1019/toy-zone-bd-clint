@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -21,16 +21,85 @@ const Nav = () => {
                   src="https://eclatsuperior.com/wp-content/uploads/2021/04/man3.jpg"
                 />
               </div>
-              <Link to="/">Home</Link>
-              <Link className="ml-4" to="/blog">
+
+              <NavLink
+                to="/"
+                aria-label="Home"
+                title="Home"
+                className={({ isActive }) =>
+                  isActive ? "active font-semibold" : " ml-4 font-semibold"
+                }
+              >
+                Home
+              </NavLink>
+
+              <NavLink
+                to="/blog"
+                aria-label="Blog"
+                title="Blog"
+                className={({ isActive }) =>
+                  isActive ? "active font-semibold ml-4" : " ml-4 font-semibold"
+                }
+              >
                 Blog
-              </Link>
-              <Link className="ml-4" to="/">
+              </NavLink>
+
+              <NavLink
+                to="/"
+                aria-label=" All Toys"
+                title=" All Toys"
+                className={({ isActive }) =>
+                  isActive ? "active font-semibold ml-4" : " ml-4 font-semibold"
+                }
+              >
                 All Toys
-              </Link>
-              <Link className="ml-4 mr-4" to="/">
+              </NavLink>
+
+              <NavLink
+                to="/"
+                aria-label=" All Toys"
+                title=" All Toys"
+                className={({ isActive }) =>
+                  isActive ? "active font-semibold ml-4" : " ml-4 font-semibold"
+                }
+              >
+                Add a Toys
+              </NavLink>
+
+              <NavLink
+                to="/"
+                aria-label="Login"
+                title="Login"
+                className={({ isActive }) =>
+                  isActive ? "active font-semibold ml-4" : " ml-4 font-semibold"
+                }
+              >
+                Login
+              </NavLink>
+
+              <NavLink
+                to="/"
+                aria-label="Regestation"
+                title="Regestation"
+                className={({ isActive }) =>
+                  isActive ? "active font-semibold ml-4" : " ml-4 font-semibold"
+                }
+              >
+                Regestation
+              </NavLink>
+
+              <NavLink
+                to="/"
+                aria-label="My Toys"
+                title="My Toys"
+                className={({ isActive }) =>
+                  isActive
+                    ? "active font-semibold ml-4 mr-4"
+                    : " ml-4 mr-4 font-semibold"
+                }
+              >
                 My Toys
-              </Link>
+              </NavLink>
             </div>
           </div>
           <div className="dropdown dropdown-end mr-4 block md:hidden">
@@ -60,16 +129,88 @@ const Nav = () => {
                 <Link to="/">Profile</Link>
               </li>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink
+                  to="/"
+                  aria-label="Home"
+                  title="Home"
+                  className={({ isActive }) =>
+                    isActive ? "active font-semibold mb-2" : " font-semibold"
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <Link to="/blog">Blog</Link>
+                <NavLink
+                  to="/blog"
+                  aria-label="Blog"
+                  title="Blog"
+                  className={({ isActive }) =>
+                    isActive ? "active font-semibold mb-2" : " font-semibold"
+                  }
+                >
+                  Blog
+                </NavLink>
               </li>
               <li>
-                <Link to="/">All Toys</Link>
+                <NavLink
+                  to="/"
+                  aria-label="All Toys"
+                  title="All Toys"
+                  className={({ isActive }) =>
+                    isActive ? "active font-semibold mb-2" : " font-semibold"
+                  }
+                >
+                  All Toys
+                </NavLink>
               </li>
               <li>
-                <Link to="/">My Toys</Link>
+                <NavLink
+                  to="/"
+                  aria-label="Add a Toys"
+                  title="Add a Toys"
+                  className={({ isActive }) =>
+                    isActive ? "active font-semibold mb-2" : " font-semibold"
+                  }
+                >
+                  Add a Toys
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  aria-label="My Toys"
+                  title="My Toys"
+                  className={({ isActive }) =>
+                    isActive ? "active font-semibold mb-2" : " font-semibold"
+                  }
+                >
+                  My Toys
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  aria-label="Login"
+                  title="Login"
+                  className={({ isActive }) =>
+                    isActive ? "active font-semibold mb-2" : " font-semibold"
+                  }
+                >
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  aria-label="Regestation"
+                  title="Regestation"
+                  className={({ isActive }) =>
+                    isActive ? "active font-semibold" : " font-semibold"
+                  }
+                >
+                  Regestation
+                </NavLink>
               </li>
             </ul>
           </div>
