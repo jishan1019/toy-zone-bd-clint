@@ -12,7 +12,7 @@ const Feedback = () => {
         <p className="text-center mt-3 mb-6 text-orange-800">What they say</p>
       </div>
       <div className="flex bg-rose-100 justify-center items-center flex-col border-2 lg:flex-row  w-full p-4">
-        <div className="lg:w-[50%] w-full rounded  mb-8 border-r-2">
+        <div className="lg:w-[50%] w-full rounded   border-r-2">
           <img
             src="https://thumbs.dreamstime.com/b/baby-toddler-playing-toy-car-boy-40768227.jpg"
             alt=""

@@ -4,13 +4,12 @@ const Gallary = () => {
   return (
     <section className=" mt-12 pl-6 pr-6 w-full">
       <h1 className="font-semibold text-center lg:text-2xl">
-        CREATING A SPACE FOR FAMILIES INSPIRES <br /> US IN WORK VISIT OUR
-        GALLARY.
+        VISIT OUR TOYS GALLARY.
       </h1>
 
       {/* Gallary Card */}
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 lg:w-1/2 w-full mx-auto mt-8 gap-2">
+      <div className="grid grid-cols-1 text-orange-800 lg:grid-cols-3 lg:w-1/2 w-full mx-auto mt-8 gap-2">
         <div className="bg-rose-100 p-2 rounded">
           <div className="w-full">
             <img
