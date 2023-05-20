@@ -17,7 +17,7 @@ const Subscribe = () => {
             type="email"
             placeholder="Enter your eamil adress"
           />
-          <button className="bg-orange-600 hover:bg-orange-400 p-4 text-white hover:text-black font-bold rounded  ">
+          <button className="bg-orange-600 hover:bg-orange-400 p-4 mt-4 lg:mt-0 text-white hover:text-black font-bold rounded  ">
             Subscribe Now
           </button>
         </div>

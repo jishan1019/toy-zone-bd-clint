@@ -4,6 +4,7 @@ import Gallary from "./Gallary/Gallary";
 import Feedback from "./Feedback/Feedback";
 import OnSellProduct from "./OnSellProduct/OnSellProduct";
 import Subscribe from "./Subscribe/Subscribe";
+import MoreOurProduct from "./MoreOurProduct/MoreOurProduct";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Gallary />
       <OnSellProduct />
       <Feedback />
+      <MoreOurProduct />
       <Subscribe />
     </div>
   );
