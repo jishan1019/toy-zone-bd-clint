@@ -60,7 +60,7 @@ const Regestation = () => {
 
             <input
               type="submit"
-              value="Login Now"
+              value="Regestation Now"
               className="p-4 rounded-md mt-4 bg-orange-700 text-white font-semibold"
             />
           </form>
