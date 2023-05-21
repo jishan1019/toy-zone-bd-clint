@@ -3,8 +3,8 @@ import React from "react";
 const Subscribe = () => {
   return (
     <>
-      <div className="mt-20 text-center ">
-        <h1 className="md:text-4xl text-2xl font-semibold mb-12 text-center ml-3 mr-3">
+      <div className="mt-20 text-center mb-6 ">
+        <h1 className="md:text-3xl text-2xl font-semibold mb-8 text-center ml-3 mr-3">
           Limited Time Offer get 30% Offer <br /> Prise Join Now
         </h1>
         <p className="text-red-700">

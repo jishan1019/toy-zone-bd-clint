@@ -9,8 +9,8 @@ const Gallary = () => {
 
       {/* Gallary Card */}
 
-      <div className="grid grid-cols-1 text-orange-800 lg:grid-cols-3 lg:w-1/2 w-full mx-auto mt-8 gap-2">
-        <div className="bg-rose-100 p-2 rounded">
+      <div className="grid grid-cols-1 bg-white text-orange-800 lg:grid-cols-3 lg:w-1/2 w-full mx-auto mt-8 gap-2">
+        <div className="bg-[#F3F5F7] p-2 rounded">
           <div className="w-full">
             <img
               src="https://i.ibb.co/vXsfBVS/81-QPr-OUKk-CL-AC-UL600-FMwebp-QL65-600x472.webp"
@@ -22,7 +22,7 @@ const Gallary = () => {
           </div>
         </div>
 
-        <div className="bg-rose-100 p-2 rounded">
+        <div className="bg-[#F3F5F7] p-2 rounded">
           <div className="w-full">
             <img
               src="https://m.media-amazon.com/images/I/81BHCcmEqcL._AC_UL600_FMwebp_QL65_.jpg"
@@ -34,7 +34,7 @@ const Gallary = () => {
           </div>
         </div>
 
-        <div className="bg-rose-100 p-2 rounded">
+        <div className="bg-[#F3F5F7] p-2 rounded">
           <div className="w-full">
             <img
               src="https://i.ibb.co/frjhNGy/612im-Uh-CFe-L-AC-UL600-FMwebp-QL65-600x472.webp"
@@ -46,7 +46,7 @@ const Gallary = () => {
           </div>
         </div>
 
-        <div className="bg-rose-100 p-2 rounded">
+        <div className="bg-[#F3F5F7] p-2 rounded">
           <div className="w-full">
             <img
               src="https://i.ibb.co/K2hGJCM/81-D6-Gojp0k-L-AC-UL600-FMwebp-QL65-600x472.webp"
@@ -58,7 +58,7 @@ const Gallary = () => {
           </div>
         </div>
 
-        <div className="bg-rose-100 p-2 rounded">
+        <div className="bg-[#F3F5F7] p-2 rounded">
           <div className="w-full">
             <img
               src="https://i.ibb.co/xMHnTKW/710-Lhx-S-g-L-AC-UL600-FMwebp-QL65-600x472-1.webp"
@@ -70,7 +70,7 @@ const Gallary = () => {
           </div>
         </div>
 
-        <div className="bg-rose-100 p-2 rounded">
+        <div className="bg-[#F3F5F7] p-2 rounded">
           <div className="w-full">
             <img
               src="https://i.ibb.co/NsWx439/814-ZDx6krw-L-AC-UL600-FMwebp-QL65-600x472.webp"
@@ -82,7 +82,7 @@ const Gallary = () => {
           </div>
         </div>
 
-        <div className="bg-rose-100 p-2 rounded">
+        <div className="bg-[#F3F5F7] p-2 rounded">
           <div className="w-full">
             <img
               src="https://m.media-amazon.com/images/I/61ZkSEQaNcL._AC_UL600_FMwebp_QL65_.jpg"
@@ -94,7 +94,7 @@ const Gallary = () => {
           </div>
         </div>
 
-        <div className="bg-rose-100 p-2 rounded">
+        <div className="bg-[#F3F5F7] p-2 rounded">
           <div className="w-full">
             <img
               src="https://i.ibb.co/7RJHZVM/71kflj9q-w-L-AC-UL600-FMwebp-QL65-600x392.webp"
