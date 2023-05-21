@@ -6,6 +6,7 @@ import OnSellProduct from "./OnSellProduct/OnSellProduct";
 import Subscribe from "./Subscribe/Subscribe";
 import MoreOurProduct from "./MoreOurProduct/MoreOurProduct";
 import useDynamicTitle from "../CustomHook/useDynamicTitle";
+import ShopByCatagoryIcon from "./ShopByCatagory/ShopByCatagoryIcon";
 
 const Home = () => {
   useDynamicTitle("Toy Zone | Home");
@@ -13,6 +14,7 @@ const Home = () => {
     <div className="mb-16">
       <Cover />
       <Gallary />
+      <ShopByCatagoryIcon />
       <OnSellProduct />
       <Feedback />
       <Subscribe />

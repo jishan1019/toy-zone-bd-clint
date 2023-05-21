@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useDynamicTitle from "../CustomHook/useDynamicTitle";
 import AllToysTableBody from "./AllToysTableBody";
 
 const AllToys = () => {
   useDynamicTitle("Toy Zone | All Toy");
+  const [allToys, setAllToys] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/allToys")
+      .then((res) => res.json())
+      .then((allToysData) => setAllToys(allToysData.slice(0, 20)));
+  }, []);
+
   return (
     <div>
       <div className="overflow-x-auto w-full">
@@ -34,9 +42,12 @@ const AllToys = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr>
-              <AllToysTableBody />
-            </tr>
+
+            {allToys?.map((singleToy) => (
+              <tr key={singleToy?._id}>
+                <AllToysTableBody singleToy={singleToy}></AllToysTableBody>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

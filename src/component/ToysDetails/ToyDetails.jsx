@@ -3,6 +3,7 @@ import useDynamicTitle from "../CustomHook/useDynamicTitle";
 
 const ToyDetails = () => {
   useDynamicTitle("Toy Zone | Toy Details");
+
   return (
     <div className="border-2 p-8 w-[80%] flex flex-col lg:flex-row  mx-auto mt-16 mb-16 rounded-lg lg:mb-0">
       <div className="w-full lg:w-[60%]">
