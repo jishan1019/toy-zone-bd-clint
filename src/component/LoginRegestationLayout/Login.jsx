@@ -61,6 +61,7 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center  w-full">
       <div className="w-[50%] hidden lg:block mt-8 mb-8">
+        <ToastContainer />
         <img
           src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000"
           alt=""

@@ -28,7 +28,7 @@ const Nav = () => {
           <div className="dropdown dropdown-end hidden md:block">
             <div className="indicator text-orange-800 font-semibold">
               <div className="w-8 h-8 btn-circle avatar mr-4">
-                {user?.photoURL ? (
+                {user ? (
                   <img
                     className="rounded-full"
                     onMouseOver={() => {
@@ -74,7 +74,7 @@ const Nav = () => {
               </NavLink>
 
               <NavLink
-                to="/"
+                to="/allToys"
                 aria-label=" All Toys"
                 title=" All Toys"
                 className={({ isActive }) =>
@@ -84,16 +84,22 @@ const Nav = () => {
                 All Toys
               </NavLink>
 
-              <NavLink
-                to="/"
-                aria-label=" All Toys"
-                title=" All Toys"
-                className={({ isActive }) =>
-                  isActive ? "active font-semibold ml-4" : " ml-4 font-semibold"
-                }
-              >
-                Add a Toys
-              </NavLink>
+              {user ? (
+                <NavLink
+                  to="/addAtoy"
+                  aria-label=" All Toys"
+                  title=" All Toys"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active font-semibold ml-4"
+                      : " ml-4 font-semibold"
+                  }
+                >
+                  Add a Toys
+                </NavLink>
+              ) : (
+                ""
+              )}
 
               {user?.email ? (
                 <NavLink
@@ -135,18 +141,22 @@ const Nav = () => {
                 Regestation
               </NavLink>
 
-              <NavLink
-                to="/"
-                aria-label="My Toys"
-                title="My Toys"
-                className={({ isActive }) =>
-                  isActive
-                    ? "active font-semibold ml-4 mr-4"
-                    : " ml-4 mr-4 font-semibold"
-                }
-              >
-                My Toys
-              </NavLink>
+              {user ? (
+                <NavLink
+                  to="/myToys"
+                  aria-label="My Toys"
+                  title="My Toys"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active font-semibold ml-4 mr-4"
+                      : " ml-4 mr-4 font-semibold"
+                  }
+                >
+                  My Toys
+                </NavLink>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div className="dropdown dropdown-end mr-4 block md:hidden">
@@ -211,41 +221,66 @@ const Nav = () => {
                   All Toys
                 </NavLink>
               </li>
+
+              {user ? (
+                <li>
+                  <NavLink
+                    to="/addAtoy"
+                    aria-label="Add a Toys"
+                    title="Add a Toys"
+                    className={({ isActive }) =>
+                      isActive ? "active font-semibold mb-2" : " font-semibold"
+                    }
+                  >
+                    Add a Toys
+                  </NavLink>
+                </li>
+              ) : (
+                ""
+              )}
+
+              {user ? (
+                <li>
+                  <NavLink
+                    to="/myToys"
+                    aria-label="My Toys"
+                    title="My Toys"
+                    className={({ isActive }) =>
+                      isActive ? "active font-semibold mb-2" : " font-semibold"
+                    }
+                  >
+                    My Toys
+                  </NavLink>
+                </li>
+              ) : (
+                ""
+              )}
+
               <li>
-                <NavLink
-                  to="/"
-                  aria-label="Add a Toys"
-                  title="Add a Toys"
-                  className={({ isActive }) =>
-                    isActive ? "active font-semibold mb-2" : " font-semibold"
-                  }
-                >
-                  Add a Toys
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/"
-                  aria-label="My Toys"
-                  title="My Toys"
-                  className={({ isActive }) =>
-                    isActive ? "active font-semibold mb-2" : " font-semibold"
-                  }
-                >
-                  My Toys
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/login"
-                  aria-label="Login"
-                  title="Login"
-                  className={({ isActive }) =>
-                    isActive ? "active font-semibold mb-2" : " font-semibold"
-                  }
-                >
-                  Login
-                </NavLink>
+                {user?.email ? (
+                  <NavLink
+                    to="/"
+                    aria-label="Logout"
+                    title="Logout"
+                    onClick={handleLogout}
+                    className={({ isActive }) =>
+                      isActive ? "active font-semibold" : " ml-4 font-semibold"
+                    }
+                  >
+                    Logout
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    to="/login"
+                    aria-label="Login"
+                    title="Login"
+                    className={({ isActive }) =>
+                      isActive ? "active font-semibold " : " ml-4 font-semibold"
+                    }
+                  >
+                    Login
+                  </NavLink>
+                )}
               </li>
               <li>
                 <NavLink

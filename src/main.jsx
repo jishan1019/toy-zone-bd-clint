@@ -9,6 +9,11 @@ import Blog from "./component/ConstantLayout/Blog.jsx";
 import Login from "./component/LoginRegestationLayout/Login.jsx";
 import Regestation from "./component/LoginRegestationLayout/Regestation.jsx";
 import AuthProvider from "./component/AuthProvider/AuthProvider.jsx";
+import AllToys from "./component/AllToys/AllToys.jsx";
+import AddAToy from "./component/AddAToy/AddAToy.jsx";
+import MyToys from "./component/MyToys/MyToys.jsx";
+import UpdateAToy from "./component/UpdateAToy/UpdateAToy.jsx";
+import ToyDetails from "./component/ToysDetails/ToyDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +36,26 @@ const router = createBrowserRouter([
       {
         path: "/regestation",
         element: <Regestation />,
+      },
+      {
+        path: "/allToys",
+        element: <AllToys />,
+      },
+      {
+        path: "/addAtoy",
+        element: <AddAToy />,
+      },
+      {
+        path: "/myToys",
+        element: <MyToys />,
+      },
+      {
+        path: "/updateToy",
+        element: <UpdateAToy />,
+      },
+      {
+        path: "/toyDetails",
+        element: <ToyDetails />,
       },
     ],
   },

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,6 +23,8 @@ const Regestation = () => {
     toast(massage);
   };
 
+  console.log(regSu);
+
   const handleRegistration = (event) => {
     event.preventDefault();
     if (name.length < 2 || password.length < 7 || email.length < 3) {
@@ -41,7 +43,7 @@ const Regestation = () => {
           notify("Regestation Success");
         })
         .catch((err) => {
-          notify(err.message);
+          notify(err.massage);
         });
     }
   };
@@ -53,7 +55,7 @@ const Regestation = () => {
         notify(`Regestation Success ${user?.displayName}`);
       })
       .catch((error) => {
-        console.log(error);
+        notify(error);
       });
   };
 
@@ -64,7 +66,7 @@ const Regestation = () => {
         notify(`Regestation Success ${user?.displayName}`);
       })
       .catch((error) => {
-        console.log(error);
+        notify(error);
       });
   };
 
@@ -78,6 +80,7 @@ const Regestation = () => {
       </div>
       <div className=" lg:w-[50%] w-full mt-8 mb-12 ">
         <div className="bg-base-200 lg:w-[60%] w-[80%] mx-auto pt-12 pb-12 pl-4 pr-4 rounded-md text-center">
+          <ToastContainer />
           <h1 className="font-bold text-3xl">Create Account</h1>
           <p className="mt-3 text-sm">
             Please Register using account detail bellow.
