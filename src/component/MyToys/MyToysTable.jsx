@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyToysTable = () => {
   return (
@@ -26,9 +27,11 @@ const MyToysTable = () => {
       <td>$:10.16</td>
       <td>325</td>
       <th>
-        <button className="btn btn-ghost btn-xs pl-4 pr-4 pt-3 pb-6 text-white font-semibold bg-orange-600">
-          details
-        </button>
+        <Link to="/updateToy">
+          <button className="btn btn-ghost btn-xs pl-4 pr-4 pt-3 pb-6 text-white font-semibold bg-orange-600">
+            Update
+          </button>
+        </Link>
         <button className="btn btn-ghost btn-xs outline pl-4 ml-4 pr-4 pt-3 pb-6  font-semibold bg-white">
           Delete
         </button>
