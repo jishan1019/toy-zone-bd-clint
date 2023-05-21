@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ShopByCatagoryCard from "./ShopByCatagoryCard";
 
 const ShopByCatagoryIcon = () => {
-  const [catagory, setCatagory] = useState(false);
+  const [catagory, setCatagory] = useState("");
+  const [singleCatagory, setSingleCatagory] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/toysByCategory/${catagory}`)
+      .then((res) => res.json())
+      .then((singleData) => setSingleCatagory(singleData));
+  }, [catagory]);
+
+  const handelCatagiry = (name) => {
+    setCatagory(name);
+  };
 
   return (
     <div className="p-4 bg-slate-50  mt-20">
@@ -14,7 +25,7 @@ const ShopByCatagoryIcon = () => {
 
       <div className="grid grid-col-1 gap-6 mt-8 lg:grid-cols-4">
         <div
-          onClick={() => setCatagory(true)}
+          onClick={() => handelCatagiry("Car Toy")}
           className="card  bg-base-100 shadow"
         >
           <div className="card-body mx-auto">
@@ -28,7 +39,7 @@ const ShopByCatagoryIcon = () => {
         </div>
 
         <div
-          onClick={() => setCatagory(true)}
+          onClick={() => handelCatagiry("Bus Toy")}
           className="card  bg-base-100 shadow"
         >
           <div className="card-body mx-auto">
@@ -42,7 +53,7 @@ const ShopByCatagoryIcon = () => {
         </div>
 
         <div
-          onClick={() => setCatagory(true)}
+          onClick={() => handelCatagiry("Bus Toy")}
           className="card  bg-base-100 shadow"
         >
           <div className="card-body mx-auto">
@@ -55,7 +66,10 @@ const ShopByCatagoryIcon = () => {
           </div>
         </div>
 
-        <div className="card  bg-base-100 shadow">
+        <div
+          onClick={() => handelCatagiry("Truck Toy")}
+          className="card  bg-base-100 shadow"
+        >
           <div className="card-body mx-auto">
             <input
               className="border-2 p-3"
@@ -67,12 +81,12 @@ const ShopByCatagoryIcon = () => {
             </button>
           </div>
         </div>
+      </div>
 
-        {catagory && (
-          <div className="mt-8 mb-8 ">
-            <ShopByCatagoryCard />
-          </div>
-        )}
+      <div className="mt-8 mb-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {singleCatagory?.map((singleDataCatagory) => (
+          <ShopByCatagoryCard singleDataCatagory={singleDataCatagory} />
+        ))}
       </div>
     </div>
   );

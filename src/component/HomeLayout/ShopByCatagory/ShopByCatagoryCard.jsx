@@ -1,22 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ShopByCatagoryCard = () => {
+const ShopByCatagoryCard = ({ singleDataCatagory }) => {
+  console.log(singleDataCatagory);
+
+  const { name, price, rating, pictureURL, _id } = singleDataCatagory || {};
+
   return (
-    <div>
-      <div className="card w-96 bg-base-100 shadow rounded-none">
+    <>
+      <div className="card w-full bg-base-100 shadow rounded-none">
         <figure>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7PCv5Rr74A7QMS3RN064lIh52796r1FI8xQ&usqp=CAU"
-            alt="Shoes"
-          />
+          <img className="h-40" src={pictureURL} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Toy Name: Spreed Car</h2>
-          <p>Price: 1200</p>
-          <p>Rating: 4.0</p>
+          <h2 className="card-title">Toy Name: {name}</h2>
+          <p>Price: {price}</p>
+          <p>Rating: {rating}</p>
           <div className="card-actions justify-end">
-            <Link to="toyDetails">
+            <Link to={`/toyDetails/${_id}`}>
               <button className="btn btn-primary bg-orange-600">
                 View Details
               </button>
@@ -24,7 +25,7 @@ const ShopByCatagoryCard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
