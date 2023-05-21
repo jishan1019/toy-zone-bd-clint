@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Nav = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const [mouseHoverUser, setMouseHoverUser] = useState(false);
+
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <div className="navbar bg-white">
@@ -16,11 +28,28 @@ const Nav = () => {
           <div className="dropdown dropdown-end hidden md:block">
             <div className="indicator text-orange-800 font-semibold">
               <div className="w-8 h-8 btn-circle avatar mr-4">
-                <img
-                  className="rounded-full"
-                  src="https://eclatsuperior.com/wp-content/uploads/2021/04/man3.jpg"
-                />
+                {user?.photoURL ? (
+                  <img
+                    className="rounded-full"
+                    onMouseOver={() => {
+                      setMouseHoverUser(true);
+                    }}
+                    src={
+                      user?.photoURL
+                        ? user?.photoURL
+                        : "https://eclatsuperior.com/wp-content/uploads/2021/04/man3.jpg"
+                    }
+                  />
+                ) : (
+                  ""
+                )}
               </div>
+
+              {mouseHoverUser ? (
+                <h1 className="mr-4 rounded bg-rose-100 p-1">
+                  {user?.displayName ? user.displayName : user?.email}
+                </h1>
+              ) : null}
 
               <NavLink
                 to="/"
@@ -66,16 +95,34 @@ const Nav = () => {
                 Add a Toys
               </NavLink>
 
-              <NavLink
-                to="/login"
-                aria-label="Login"
-                title="Login"
-                className={({ isActive }) =>
-                  isActive ? "active font-semibold ml-4" : " ml-4 font-semibold"
-                }
-              >
-                Login
-              </NavLink>
+              {user?.email ? (
+                <NavLink
+                  to="/"
+                  aria-label="Logout"
+                  title="Logout"
+                  onClick={handleLogout}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active font-semibold ml-4"
+                      : " ml-4 font-semibold"
+                  }
+                >
+                  Logout
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/login"
+                  aria-label="Login"
+                  title="Login"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active font-semibold ml-4"
+                      : " ml-4 font-semibold"
+                  }
+                >
+                  Login
+                </NavLink>
+              )}
 
               <NavLink
                 to="/regestation"
