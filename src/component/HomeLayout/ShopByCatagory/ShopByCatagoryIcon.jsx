@@ -20,7 +20,6 @@ const ShopByCatagoryIcon = () => {
 
   const handleCategory = () => {
     setCatagory(inputValue);
-    console.log(inputValue);
   };
 
   return (

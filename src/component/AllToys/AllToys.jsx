@@ -5,12 +5,20 @@ import AllToysTableBody from "./AllToysTableBody";
 const AllToys = () => {
   useDynamicTitle("Toy Zone | All Toy");
   const [allToys, setAllToys] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3000/allToys")
       .then((res) => res.json())
       .then((allToysData) => setAllToys(allToysData.slice(0, 20)));
   }, []);
+
+  const handleCategory = () => {
+    console.log(inputValue);
+    fetch(`http://localhost:3000/toysByName/${inputValue}`)
+      .then((res) => res.json())
+      .then((allToysData) => setAllToys(allToysData));
+  };
 
   return (
     <div>
@@ -21,8 +29,13 @@ const AllToys = () => {
               className="p-4 border-2 border-gray-400 flex-grow rounded-md"
               type="text"
               placeholder="Search By Name......."
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
             />
-            <button className="p-4 bg-orange-600 -ml-2 text-white font-semibold rounded-md border-t-2 border-r-2 border-b-2 border-gray-400">
+            <button
+              onClick={() => handleCategory()}
+              className="p-4 bg-orange-600 -ml-2 text-white font-semibold rounded-md border-t-2 border-r-2 border-b-2 border-gray-400"
+            >
               Search
             </button>
           </div>
