@@ -37,20 +37,6 @@ const UpdateAToy = () => {
             />
 
             <input
-              defaultValue={user?.displayName}
-              className="p-3 rounded-md w-full block "
-              placeholder="Enter Seller Name"
-              {...register("sellerName", { required: true })}
-            />
-
-            <input
-              defaultValue={user?.email}
-              className="p-3 rounded-md w-full block "
-              placeholder="Enter Seller Email"
-              {...register("sellerEmail", { required: true })}
-            />
-
-            <input
               className="p-3 rounded-md w-full block "
               placeholder="Enter Sub Catagory Name ex:(car)"
               {...register("subCatagoryName", { required: true })}
