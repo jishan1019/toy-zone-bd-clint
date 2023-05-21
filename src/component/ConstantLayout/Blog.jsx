@@ -1,6 +1,8 @@
 import React from "react";
+import useDynamicTitle from "../CustomHook/useDynamicTitle";
 
 const Blog = () => {
+  useDynamicTitle("Toy Zone | Blog");
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 mr-8 ml-8 mb-8 ">
       <div className="card w-full h-[32rem] bg-base-100 shadow-md">

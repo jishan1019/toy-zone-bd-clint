@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import useDynamicTitle from "../CustomHook/useDynamicTitle";
 
 const Regestation = () => {
+  useDynamicTitle("Toy Zone | Regestation Now");
   const {
     registerUser,
     registerGoogle,

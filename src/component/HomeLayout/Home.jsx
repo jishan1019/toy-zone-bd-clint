@@ -5,8 +5,10 @@ import Feedback from "./Feedback/Feedback";
 import OnSellProduct from "./OnSellProduct/OnSellProduct";
 import Subscribe from "./Subscribe/Subscribe";
 import MoreOurProduct from "./MoreOurProduct/MoreOurProduct";
+import useDynamicTitle from "../CustomHook/useDynamicTitle";
 
 const Home = () => {
+  useDynamicTitle("Toy Zone | Home");
   return (
     <div className="mb-16">
       <Cover />

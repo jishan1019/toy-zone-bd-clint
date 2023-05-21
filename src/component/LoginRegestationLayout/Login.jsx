@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useDynamicTitle from "../CustomHook/useDynamicTitle";
 
 const Login = () => {
+  useDynamicTitle("Toy Zone | Login Now");
   const { loginUser, loginGoogle, loginGithub } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
