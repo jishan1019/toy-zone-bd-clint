@@ -6,6 +6,7 @@ import ShopByCatagoryCard from "./ShopByCatagoryCard";
 const ShopByCatagoryIcon = () => {
   const [catagory, setCatagory] = useState("");
   const [singleCatagory, setSingleCatagory] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/toysByCategory/${catagory}`)
@@ -15,6 +16,11 @@ const ShopByCatagoryIcon = () => {
 
   const handelCatagiry = (name) => {
     setCatagory(name);
+  };
+
+  const handleCategory = () => {
+    setCatagory(inputValue);
+    console.log(inputValue);
   };
 
   return (
@@ -75,8 +81,14 @@ const ShopByCatagoryIcon = () => {
               className="border-2 p-3"
               type="text"
               placeholder="Search by Catagory name"
+              name="input"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
             />
-            <button className="text-center bg-orange-600 p-3 rounded-md text-white">
+            <button
+              onClick={() => handleCategory()}
+              className="text-center bg-orange-600 p-3 rounded-md text-white"
+            >
               Search Catagory
             </button>
           </div>
