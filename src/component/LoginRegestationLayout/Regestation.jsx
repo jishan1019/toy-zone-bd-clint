@@ -25,8 +25,6 @@ const Regestation = () => {
     toast(massage);
   };
 
-  console.log(regSu);
-
   const handleRegistration = (event) => {
     event.preventDefault();
     if (name.length < 2 || password.length < 7 || email.length < 3) {

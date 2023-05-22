@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Tab, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ShopByCatagoryCard from "./ShopByCatagoryCard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ShopByCatagoryIcon = () => {
   const [catagory, setCatagory] = useState("");
   const [singleCatagory, setSingleCatagory] = useState([]);
   const [inputValue, setInputValue] = useState("");
+
+  const notify = (massage) => {
+    toast(massage);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:3000/toysByCategory/${catagory}`)
@@ -16,10 +22,12 @@ const ShopByCatagoryIcon = () => {
 
   const handelCatagiry = (name) => {
     setCatagory(name);
+    notify("Please Wait");
   };
 
   const handleCategory = () => {
     setCatagory(inputValue);
+    notify("Please Wait");
   };
 
   return (
@@ -27,6 +35,8 @@ const ShopByCatagoryIcon = () => {
       <h1 className="text-2xl font-semibold text-center">
         Shop With Us in Defferent Catagory
       </h1>
+
+      <ToastContainer />
 
       <div className="grid grid-col-1 gap-6 mt-8 lg:grid-cols-4">
         <div
@@ -72,7 +82,7 @@ const ShopByCatagoryIcon = () => {
         </div>
 
         <div
-          onClick={() => handelCatagiry("Truck Toy")}
+          onClick={() => handelCatagiry("")}
           className="card  bg-base-100 shadow"
         >
           <div className="card-body mx-auto">

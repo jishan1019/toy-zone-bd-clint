@@ -3,12 +3,18 @@ import useDynamicTitle from "../CustomHook/useDynamicTitle";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UpdateAToy = () => {
   useDynamicTitle("Toy Zone | Update A Toy");
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [serverData, setServerData] = useState({});
+
+  const notify = (massage) => {
+    toast(massage);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:3000/singleToy/${id}`)
@@ -35,7 +41,7 @@ const UpdateAToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    notify("Please Wait");
 
     fetch(`http://localhost:3000/updateToys/${data?._id}`, {
       method: "PUT",
@@ -44,7 +50,9 @@ const UpdateAToy = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        if (result.modifiedCount > 0) {
+          notify("Data Update Successfully");
+        }
       });
   };
 
@@ -56,6 +64,7 @@ const UpdateAToy = () => {
       <p className="text-center text-orange-800">
         Please give all info for add a toy
       </p>
+      <ToastContainer />
       <div className="mt-8 mb-8 p-4 min-h-[70vh]">
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 justify-center items-center">

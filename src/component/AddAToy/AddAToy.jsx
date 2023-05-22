@@ -2,10 +2,16 @@ import React, { useContext } from "react";
 import useDynamicTitle from "../CustomHook/useDynamicTitle";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddAToy = () => {
   useDynamicTitle("Toy Zone | Add A Toy");
   const { user } = useContext(AuthContext);
+
+  const notify = (massage) => {
+    toast(massage);
+  };
 
   const {
     register,
@@ -14,6 +20,7 @@ const AddAToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    notify("Please Wait");
     fetch("http://localhost:3000/postToys", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,7 +28,9 @@ const AddAToy = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        if (result.acknowledged) {
+          notify("Data Add Successfully");
+        }
       });
   };
 
@@ -103,6 +112,8 @@ const AddAToy = () => {
             value="Add A Toys"
           />
         </form>
+
+        <ToastContainer />
       </div>
     </div>
   );

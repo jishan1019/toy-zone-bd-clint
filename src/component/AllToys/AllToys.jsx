@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from "react";
 import useDynamicTitle from "../CustomHook/useDynamicTitle";
 import AllToysTableBody from "./AllToysTableBody";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AllToys = () => {
   useDynamicTitle("Toy Zone | All Toy");
   const [allToys, setAllToys] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
+  const notify = (massage) => {
+    toast(massage);
+  };
+
   useEffect(() => {
+    notify("Please Wait Toys Loading....");
     fetch("http://localhost:3000/allToys")
       .then((res) => res.json())
       .then((allToysData) => setAllToys(allToysData.slice(0, 20)));
   }, []);
 
   const handleCategory = () => {
+    notify("Please Wait");
     console.log(inputValue);
     fetch(`http://localhost:3000/toysByName/${inputValue}`)
       .then((res) => res.json())
@@ -32,6 +40,8 @@ const AllToys = () => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
+
+            <ToastContainer />
             <button
               onClick={() => handleCategory()}
               className="p-4 bg-orange-600 -ml-2 text-white font-semibold rounded-md border-t-2 border-r-2 border-b-2 border-gray-400"

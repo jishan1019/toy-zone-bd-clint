@@ -2,11 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import useDynamicTitle from "../CustomHook/useDynamicTitle";
 import MyToysTable from "./MyToysTable";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MyToys = () => {
   useDynamicTitle("Toy Zone | My Toys");
   const { user } = useContext(AuthContext);
   const [myToy, setMtToy] = useState([]);
+
+  const notify = (massage) => {
+    toast(massage);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:3000/myToys/${user?.email}`)
@@ -15,6 +21,7 @@ const MyToys = () => {
   }, [user]);
 
   const handelDeleteNew = (_id) => {
+    notify("Please Wait");
     fetch(`http://localhost:3000/users/${_id}`, {
       method: "DELETE",
     })
@@ -22,7 +29,7 @@ const MyToys = () => {
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
-          // Remove the deleted item from the myToy state
+          notify("Delete Success");
           setMtToy((prevMyToys) => prevMyToys.filter((toy) => toy._id !== _id));
         }
       });
@@ -30,6 +37,7 @@ const MyToys = () => {
 
   return (
     <div>
+      <ToastContainer />
       <table className="table w-full">
         {/* head */}
         <thead>
