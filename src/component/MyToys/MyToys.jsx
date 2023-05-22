@@ -14,6 +14,20 @@ const MyToys = () => {
       .then((myToysData) => setMtToy(myToysData));
   }, [user]);
 
+  const handelDeleteNew = (_id) => {
+    fetch(`http://localhost:3000/users/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          // Remove the deleted item from the myToy state
+          setMtToy((prevMyToys) => prevMyToys.filter((toy) => toy._id !== _id));
+        }
+      });
+  };
+
   return (
     <div>
       <table className="table w-full">
@@ -35,6 +49,7 @@ const MyToys = () => {
             <MyToysTable
               key={singleMyToy._id}
               singleMyToy={singleMyToy}
+              handelDeleteNew={handelDeleteNew}
             ></MyToysTable>
           </tbody>
         ))}

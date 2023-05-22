@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, json } from "react-router-dom";
 
-const MyToysTable = ({ singleMyToy }) => {
+const MyToysTable = ({ singleMyToy, handelDeleteNew }) => {
   const {
     toyPhotoUrl,
     toyName,
@@ -12,14 +12,6 @@ const MyToysTable = ({ singleMyToy }) => {
     toyQuentitiy,
     _id,
   } = singleMyToy || {};
-
-  const handelDelete = (_id) => {
-    fetch(`http://localhost:3000/users/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
 
   return (
     <>
@@ -49,7 +41,7 @@ const MyToysTable = ({ singleMyToy }) => {
           </button>
         </Link>
         <button
-          onClick={() => handelDelete(_id)}
+          onClick={() => handelDeleteNew(_id)}
           className="btn btn-ghost btn-xs outline pl-4 ml-4 pr-4 pt-3 pb-6  font-semibold bg-white"
         >
           Delete
