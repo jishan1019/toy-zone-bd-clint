@@ -35,7 +35,7 @@ const MyToysTable = ({ singleMyToy }) => {
       <td>$:{toyPrise}</td>
       <td>{toyQuentitiy}</td>
       <th>
-        <Link to="/updateToy">
+        <Link to={`/updateToy/${_id}`}>
           <button className="btn btn-ghost btn-xs pl-4 pr-4 pt-3 pb-6 text-white font-semibold bg-orange-600">
             Update
           </button>

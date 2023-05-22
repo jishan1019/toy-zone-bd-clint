@@ -29,14 +29,15 @@ const MyToys = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          {myToy?.map((singleMyToy) => (
+
+        {myToy?.map((singleMyToy) => (
+          <tbody>
             <MyToysTable
               key={singleMyToy._id}
               singleMyToy={singleMyToy}
             ></MyToysTable>
-          ))}
-        </tbody>
+          </tbody>
+        ))}
       </table>
     </div>
   );

@@ -23,7 +23,6 @@ const AddAToy = () => {
       .then((result) => {
         console.log(result);
       });
-    console.log(data);
   };
 
   return (
