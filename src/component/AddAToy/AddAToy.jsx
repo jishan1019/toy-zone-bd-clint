@@ -12,7 +12,19 @@ const AddAToy = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    fetch("http://localhost:3000/postToys", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+    console.log(data);
+  };
 
   return (
     <div className="bg-rose-100 m-8 rounded-md">
