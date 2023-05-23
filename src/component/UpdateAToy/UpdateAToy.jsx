@@ -17,7 +17,7 @@ const UpdateAToy = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/singleToy/${id}`)
+    fetch(`https://jisan-repo-production.up.railway.app/singleToy/${id}`)
       .then((res) => res.json())
       .then((result) => setServerData(result));
   }, []);
@@ -43,11 +43,14 @@ const UpdateAToy = () => {
   const onSubmit = (data) => {
     notify("Please Wait");
 
-    fetch(`http://localhost:3000/updateToys/${data?._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://jisan-repo-production.up.railway.app/updateToys/${data?._id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         if (result.modifiedCount > 0) {

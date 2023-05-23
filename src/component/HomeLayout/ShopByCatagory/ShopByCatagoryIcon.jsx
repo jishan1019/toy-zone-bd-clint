@@ -15,7 +15,9 @@ const ShopByCatagoryIcon = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/toysByCategory/${catagory}`)
+    fetch(
+      `https://jisan-repo-production.up.railway.app/toysByCategory/${catagory}`
+    )
       .then((res) => res.json())
       .then((singleData) => setSingleCatagory(singleData));
   }, [catagory]);

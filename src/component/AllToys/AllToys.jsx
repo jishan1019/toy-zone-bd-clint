@@ -15,7 +15,7 @@ const AllToys = () => {
 
   useEffect(() => {
     notify("Please Wait Toys Loading....");
-    fetch("http://localhost:3000/allToys")
+    fetch("https://jisan-repo-production.up.railway.app/allToys")
       .then((res) => res.json())
       .then((allToysData) => setAllToys(allToysData.slice(0, 20)));
   }, []);
@@ -23,7 +23,9 @@ const AllToys = () => {
   const handleCategory = () => {
     notify("Please Wait");
     console.log(inputValue);
-    fetch(`http://localhost:3000/toysByName/${inputValue}`)
+    fetch(
+      `https://jisan-repo-production.up.railway.app/toysByName/${inputValue}`
+    )
       .then((res) => res.json())
       .then((allToysData) => setAllToys(allToysData));
   };

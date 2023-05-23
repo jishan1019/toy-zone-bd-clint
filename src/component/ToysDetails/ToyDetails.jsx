@@ -15,7 +15,7 @@ const ToyDetails = () => {
 
   useEffect(() => {
     notify("Please Wait Details Loading......");
-    fetch(`http://localhost:3000/singleToy/${id}`)
+    fetch(`https://jisan-repo-production.up.railway.app/singleToy/${id}`)
       .then((res) => res.json())
       .then((singleData) => setSengelDetails(singleData));
   }, [id]);

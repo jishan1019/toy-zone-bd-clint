@@ -15,14 +15,14 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/myToys/${user?.email}`)
+    fetch(`https://jisan-repo-production.up.railway.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((myToysData) => setMtToy(myToysData));
   }, [user]);
 
   const handelDeleteNew = (_id) => {
     notify("Please Wait");
-    fetch(`http://localhost:3000/users/${_id}`, {
+    fetch(`https://jisan-repo-production.up.railway.app/users/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

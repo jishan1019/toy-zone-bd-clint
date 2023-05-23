@@ -21,7 +21,7 @@ const AddAToy = () => {
 
   const onSubmit = (data) => {
     notify("Please Wait");
-    fetch("http://localhost:3000/postToys", {
+    fetch("https://jisan-repo-production.up.railway.app/postToys", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
