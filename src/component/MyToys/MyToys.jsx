@@ -9,6 +9,7 @@ const MyToys = () => {
   useDynamicTitle("Toy Zone | My Toys");
   const { user } = useContext(AuthContext);
   const [myToy, setMtToy] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const notify = (massage) => {
     toast(massage);
@@ -17,7 +18,10 @@ const MyToys = () => {
   useEffect(() => {
     fetch(`https://jisan-repo-production.up.railway.app/myToys/${user?.email}`)
       .then((res) => res.json())
-      .then((myToysData) => setMtToy(myToysData));
+      .then((myToysData) => {
+        setMtToy(myToysData);
+        setLoading(false);
+      });
   }, [user]);
 
   const handelDeleteNew = (_id) => {
@@ -37,6 +41,18 @@ const MyToys = () => {
 
   return (
     <div>
+      {loading ? (
+        <div className="text-center mb-4 mt-4">
+          <div
+            className="radial-progress bg-primary text-primary-content border-4 border-primary"
+            style={{ "--value": 70 }}
+          >
+            <small className="text-[10px]">Loading..</small>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       <ToastContainer />
       <table className="table w-full">
         {/* head */}

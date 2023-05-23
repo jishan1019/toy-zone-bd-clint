@@ -13,7 +13,7 @@ const Cover = () => {
             <h1 className="text-2xl font-semibold md:text-5xl mb-4 ml-2 ">
               Get -30% Off
             </h1>
-            <div className="md:text-lg text-xs mt-2 mb-2 ml-2 font-semibold">
+            <div className="md:text-lg text-xs mt-2 mb-2 ml-2 text-orange-800 font-semibold">
               <p>Discover a world of fun and imagination</p>
               <p>with our kids toy website.</p>
               <p>Shop now for endless joy!</p>

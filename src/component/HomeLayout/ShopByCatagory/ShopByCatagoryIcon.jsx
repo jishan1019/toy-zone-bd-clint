@@ -10,6 +10,7 @@ const ShopByCatagoryIcon = () => {
   const [singleCatagory, setSingleCatagory] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [activeTab, setActiveTab] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const notify = (massage) => {
     toast(massage);
@@ -20,17 +21,19 @@ const ShopByCatagoryIcon = () => {
       `https://jisan-repo-production.up.railway.app/toysByCategory/${catagory}`
     )
       .then((res) => res.json())
-      .then((singleData) => setSingleCatagory(singleData));
+      .then((singleData) => {
+        setSingleCatagory(singleData);
+        setLoading(false);
+      });
   }, [catagory]);
 
   const handelCatagiry = (name) => {
     setCatagory(name);
-    notify("Please Wait");
+    setLoading(true);
   };
 
   const handleCategory = () => {
     setCatagory(inputValue);
-    notify("Please Wait");
   };
 
   const handleTabClick = (index) => {
@@ -79,6 +82,49 @@ const ShopByCatagoryIcon = () => {
             Truck Category
           </Tab>
         </TabList>
+
+        <TabPanel>
+          {loading ? (
+            <div className="text-center mb-4 mt-4">
+              <div
+                className="radial-progress bg-primary text-primary-content border-4 border-primary"
+                style={{ "--value": 70 }}
+              >
+                <small className="text-[10px]">Loading..</small>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </TabPanel>
+        <TabPanel>
+          {loading ? (
+            <div className="text-center mb-4 mt-4">
+              <div
+                className="radial-progress bg-primary text-primary-content border-4 border-primary"
+                style={{ "--value": 70 }}
+              >
+                <small className="text-[10px]">Loading..</small>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </TabPanel>
+        <TabPanel>
+          {loading ? (
+            <div className="text-center mb-4 mt-4">
+              <div
+                className="radial-progress bg-primary text-primary-content border-4 border-primary"
+                style={{ "--value": 70 }}
+              >
+                <small className="text-[10px]">Loading..</small>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </TabPanel>
       </Tabs>
 
       <div className="mt-8 mb-8 grid grid-cols-1 lg:grid-cols-3 gap-6">

@@ -8,26 +8,30 @@ const AllToys = () => {
   useDynamicTitle("Toy Zone | All Toy");
   const [allToys, setAllToys] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const notify = (massage) => {
     toast(massage);
   };
 
   useEffect(() => {
-    notify("Please Wait Toys Loading....");
     fetch("https://jisan-repo-production.up.railway.app/allToys")
       .then((res) => res.json())
-      .then((allToysData) => setAllToys(allToysData.slice(0, 20)));
+      .then((allToysData) => {
+        setAllToys(allToysData.slice(0, 20));
+        setLoading(false);
+      });
   }, []);
 
   const handleCategory = () => {
-    notify("Please Wait");
-    console.log(inputValue);
+    notify("Please Wait Searching");
     fetch(
       `https://jisan-repo-production.up.railway.app/toysByName/${inputValue}`
     )
       .then((res) => res.json())
-      .then((allToysData) => setAllToys(allToysData));
+      .then((allToysData) => {
+        setAllToys(allToysData);
+      });
   };
 
   return (
@@ -53,8 +57,22 @@ const AllToys = () => {
           </div>
         </div>
 
+        {loading ? (
+          <div className="text-center mb-4">
+            <div
+              className="radial-progress bg-primary text-primary-content border-4 border-primary"
+              style={{ "--value": 70 }}
+            >
+              <small className="text-[10px]"> Loading..</small>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+
         <table className="table w-full">
           {/* head */}
+
           <thead>
             <tr>
               <th>Toy Name</th>
@@ -65,6 +83,7 @@ const AllToys = () => {
               <th>Details</th>
             </tr>
           </thead>
+
           <tbody>
             {/* row 1 */}
 
