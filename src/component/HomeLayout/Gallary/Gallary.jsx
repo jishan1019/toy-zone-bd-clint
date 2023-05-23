@@ -13,7 +13,7 @@ const Gallary = () => {
         <div className="bg-[#F3F5F7] shadow-md p-2 rounded">
           <div className="w-full">
             <img
-              src="https://i.ibb.co/vXsfBVS/81-QPr-OUKk-CL-AC-UL600-FMwebp-QL65-600x472.webp"
+              src="https://i.ibb.co/zZmYQ3w/il-fullxfull-2455695056-g2h7-600x472.webp"
               alt=""
             />
           </div>

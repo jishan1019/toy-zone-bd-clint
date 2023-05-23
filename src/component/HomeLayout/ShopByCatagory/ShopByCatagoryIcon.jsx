@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Tab, TabList, TabPanel } from "react-tabs";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ShopByCatagoryCard from "./ShopByCatagoryCard";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +9,7 @@ const ShopByCatagoryIcon = () => {
   const [catagory, setCatagory] = useState("");
   const [singleCatagory, setSingleCatagory] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [activeTab, setActiveTab] = useState(0);
 
   const notify = (massage) => {
     toast(massage);
@@ -32,6 +33,17 @@ const ShopByCatagoryIcon = () => {
     notify("Please Wait");
   };
 
+  const handleTabClick = (index) => {
+    setActiveTab(index);
+    if (index == 0) {
+      handelCatagiry("Car Toy");
+    } else if (index == 1) {
+      handelCatagiry("Bus Toy");
+    } else if (index == 2) {
+      handelCatagiry("Truck Toy");
+    }
+  };
+
   return (
     <div className="p-4 bg-slate-50  mt-20">
       <h1 className="text-2xl font-semibold text-center">
@@ -40,71 +52,34 @@ const ShopByCatagoryIcon = () => {
 
       <ToastContainer />
 
-      <div className="grid grid-col-1 gap-6 mt-8 lg:grid-cols-4">
-        <div
-          onClick={() => handelCatagiry("Car Toy")}
-          className="card  bg-base-100 shadow"
-        >
-          <div className="card-body mx-auto">
-            <img
-              className="h-16  text-center"
-              src="https://i.ibb.co/xzf8KBz/icons8-car-100.png"
-              alt=""
-            />
-            <p className="text-center">Car Catagory</p>
-          </div>
-        </div>
-
-        <div
-          onClick={() => handelCatagiry("Bus Toy")}
-          className="card  bg-base-100 shadow"
-        >
-          <div className="card-body mx-auto">
-            <img
-              className="h-16  text-center"
-              src="https://i.ibb.co/pPVgvbL/icons8-bus-100.png"
-              alt=""
-            />
-            <p className="text-center">Bus Catagory</p>
-          </div>
-        </div>
-
-        <div
-          onClick={() => handelCatagiry("Bus Toy")}
-          className="card  bg-base-100 shadow"
-        >
-          <div className="card-body mx-auto">
-            <img
-              className="h-16  text-center"
-              src="https://i.ibb.co/mNj36pH/icons8-truck-100.png"
-              alt=""
-            />
-            <p className="text-center">Truck Catagory</p>
-          </div>
-        </div>
-
-        <div
-          onClick={() => handelCatagiry("")}
-          className="card  bg-base-100 shadow"
-        >
-          <div className="card-body mx-auto">
-            <input
-              className="border-2 p-3"
-              type="text"
-              placeholder="Search by Catagory name"
-              name="input"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <button
-              onClick={() => handleCategory()}
-              className="text-center bg-orange-600 p-3 rounded-md text-white"
-            >
-              Search Catagory
-            </button>
-          </div>
-        </div>
-      </div>
+      <Tabs className="lg:ml-12 ml-0 mt-12">
+        <TabList className="flex justify-center items-center mb-8">
+          <Tab
+            className={`text-center p-4 rounded-md ${
+              activeTab === 0 ? "shadow bg-white" : ""
+            }`}
+            onClick={() => handleTabClick(0)}
+          >
+            Car Category
+          </Tab>
+          <Tab
+            className={`ml-4 p-4 text-center ${
+              activeTab === 1 ? "shadow bg-white" : ""
+            }`}
+            onClick={() => handleTabClick(1)}
+          >
+            Bus Category
+          </Tab>
+          <Tab
+            className={`ml-4 p-4 text-center ${
+              activeTab === 2 ? "shadow bg-white" : ""
+            }`}
+            onClick={() => handleTabClick(2)}
+          >
+            Truck Category
+          </Tab>
+        </TabList>
+      </Tabs>
 
       <div className="mt-8 mb-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
         {singleCatagory?.map((singleDataCatagory) => (

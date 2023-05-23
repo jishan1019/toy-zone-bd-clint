@@ -26,7 +26,7 @@ const Nav = () => {
         </div>
         <div className="flex-none">
           <div className="dropdown dropdown-end hidden md:block">
-            <div className="indicator text-orange-800 font-semibold">
+            <div className="indicator  font-semibold">
               <div className="w-8 h-8 btn-circle avatar mr-4">
                 {user ? (
                   <img
