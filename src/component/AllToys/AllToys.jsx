@@ -75,6 +75,7 @@ const AllToys = () => {
 
           <thead>
             <tr>
+              <th>Toy Image</th>
               <th>Toy Name</th>
               <th>Seller</th>
               <th>Sub-category</th>
@@ -85,8 +86,6 @@ const AllToys = () => {
           </thead>
 
           <tbody>
-            {/* row 1 */}
-
             {allToys?.map((singleToy) => (
               <tr key={singleToy?._id}>
                 <AllToysTableBody singleToy={singleToy}></AllToysTableBody>

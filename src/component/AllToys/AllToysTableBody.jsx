@@ -29,11 +29,10 @@ const AllToysTableBody = ({ singleToy }) => {
               />
             </div>
           </div>
-          <div>
-            <div className="font-bold">{name || toyName}</div>
-          </div>
         </div>
       </td>
+
+      <td className="font-bold">{name || toyName}</td>
 
       <td>{sellerName}</td>
       <td>{category || subCatagoryName}</td>

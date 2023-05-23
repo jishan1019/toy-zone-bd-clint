@@ -16,6 +16,7 @@ const ShopByCatagoryCard = ({ singleDataCatagory }) => {
           <h2 className="card-title">Toy Name: {name}</h2>
           <p>Price: {price}</p>
           <p>Rating: {rating}</p>
+
           <div className="card-actions justify-end">
             <Link to={`/toyDetails/${_id}`}>
               <button className="btn btn-primary bg-orange-600">

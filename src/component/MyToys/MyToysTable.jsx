@@ -22,12 +22,10 @@ const MyToysTable = ({ singleMyToy, handelDeleteNew }) => {
               <img src={toyPhotoUrl} alt="Avatar Tailwind CSS Component" />
             </div>
           </div>
-          <div>
-            <div className="font-bold">{toyName}</div>
-          </div>
         </div>
       </td>
 
+      <td className="font-bold">{toyName}</td>
       <td>{sellerName}</td>
       <td>{sellerEmail}</td>
       <td>{subCatagoryName}</td>

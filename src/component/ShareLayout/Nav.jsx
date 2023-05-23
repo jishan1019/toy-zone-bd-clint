@@ -211,7 +211,7 @@ const Nav = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/allToys"
                   aria-label="All Toys"
                   title="All Toys"
                   className={({ isActive }) =>

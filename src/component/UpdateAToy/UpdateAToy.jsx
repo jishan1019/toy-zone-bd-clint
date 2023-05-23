@@ -114,6 +114,7 @@ const UpdateAToy = () => {
             />
 
             <input
+              type="number"
               defaultValue={toyPrise}
               className="p-3 rounded-md w-full block "
               placeholder="Enter Toy Prise ex:(20)"
@@ -121,6 +122,7 @@ const UpdateAToy = () => {
             />
 
             <input
+              type="number"
               defaultValue={toyRating}
               className="p-3 rounded-md w-full block "
               placeholder="Enter Toy Rating ex:(4.5)"
@@ -128,6 +130,7 @@ const UpdateAToy = () => {
             />
 
             <input
+              type="number"
               defaultValue={toyQuentitiy}
               className="p-3 rounded-md w-full block "
               placeholder="Enter Avalable Quentity ex:(110)"

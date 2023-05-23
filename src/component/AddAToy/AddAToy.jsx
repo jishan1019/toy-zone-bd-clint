@@ -79,18 +79,21 @@ const AddAToy = () => {
             />
 
             <input
+              type="number"
               className="p-3 rounded-md w-full block "
               placeholder="Enter Toy Prise ex:(20)"
               {...register("toyPrise", { required: true })}
             />
 
             <input
+              type="number"
               className="p-3 rounded-md w-full block "
               placeholder="Enter Toy Rating ex:(4.5)"
               {...register("toyRating", { required: true })}
             />
 
             <input
+              type="number"
               className="p-3 rounded-md w-full block "
               placeholder="Enter Avalable Quentity ex:(110)"
               {...register("toyQuentitiy", { required: true })}
