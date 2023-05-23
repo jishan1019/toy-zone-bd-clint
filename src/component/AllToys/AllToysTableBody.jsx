@@ -2,8 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AllToysTableBody = ({ singleToy }) => {
-  const { pictureURL, name, sellerName, category, price, quantity, _id } =
-    singleToy || {};
+  const {
+    pictureURL,
+    name,
+    sellerName,
+    category,
+    price,
+    quantity,
+    _id,
+    toyName,
+    toyPhotoUrl,
+    subCatagoryName,
+    toyPrise,
+    toyQuentitiy,
+  } = singleToy || {};
 
   return (
     <>
@@ -11,20 +23,23 @@ const AllToysTableBody = ({ singleToy }) => {
         <div className="flex items-center space-x-3">
           <div className="avatar">
             <div className="mask mask-squircle w-12 h-12">
-              <img src={pictureURL} alt="Avatar Tailwind CSS Component" />
+              <img
+                src={pictureURL || toyPhotoUrl}
+                alt="Avatar Tailwind CSS Component"
+              />
             </div>
           </div>
           <div>
-            <div className="font-bold">{name}</div>
+            <div className="font-bold">{name || toyName}</div>
           </div>
         </div>
       </td>
 
       <td>{sellerName}</td>
-      <td>{category}</td>
+      <td>{category || subCatagoryName}</td>
 
-      <td>$:{price}</td>
-      <td>{quantity}</td>
+      <td>$:{price || toyPrise}</td>
+      <td>{quantity || toyQuentitiy}</td>
 
       <th>
         <Link to={`/toyDetails/${_id}`}>
