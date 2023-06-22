@@ -17,9 +17,7 @@ const ShopByCatagoryIcon = () => {
   };
 
   useEffect(() => {
-    fetch(
-      `https://jisan-repo-production.up.railway.app/toysByCategory/${catagory}`
-    )
+    fetch(`https://toy-server-one.vercel.app/toysByCategory/${catagory}`)
       .then((res) => res.json())
       .then((singleData) => {
         setSingleCatagory(singleData);

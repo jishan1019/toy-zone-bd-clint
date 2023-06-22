@@ -15,7 +15,7 @@ const ToyDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`https://jisan-repo-production.up.railway.app/singleToy/${id}`)
+    fetch(`https://toy-server-one.vercel.app/singleToy/${id}`)
       .then((res) => res.json())
       .then((singleData) => {
         setSengelDetails(singleData);

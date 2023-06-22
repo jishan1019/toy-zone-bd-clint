@@ -17,7 +17,7 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(`https://jisan-repo-production.up.railway.app/myToys/${user?.email}`)
+    fetch(`https://toy-server-one.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((myToysData) => {
         setMtToy(myToysData);
@@ -34,7 +34,7 @@ const MyToys = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`https://jisan-repo-production.up.railway.app/users/${_id}`, {
+        fetch(`https://toy-server-one.vercel.app/users/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

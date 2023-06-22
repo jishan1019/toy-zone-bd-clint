@@ -15,7 +15,7 @@ const AllToys = () => {
   };
 
   useEffect(() => {
-    fetch("https://jisan-repo-production.up.railway.app/allToys")
+    fetch("https://toy-server-one.vercel.app/allToys")
       .then((res) => res.json())
       .then((allToysData) => {
         setAllToys(allToysData.slice(0, 20));
@@ -25,9 +25,7 @@ const AllToys = () => {
 
   const handleCategory = () => {
     notify("Please Wait Searching");
-    fetch(
-      `https://jisan-repo-production.up.railway.app/toysByName/${inputValue}`
-    )
+    fetch(`https://toy-server-one.vercel.app/toysByName/${inputValue}`)
       .then((res) => res.json())
       .then((allToysData) => {
         setAllToys(allToysData);
